@@ -80,11 +80,11 @@ async def show_product(call: types.CallbackQuery, callback_data:dict):
     
     product_image = product[-1]
     
-    product_url = "http:///OneStylUzBot.pythonanywhere.com/media/" + str(product_image)
+    product_url = "https://onestyluzbot.pythonanywhere.com/media/" + str(product_image)
     
     print(product_url)
     
-    keyboard = await shop_keyboard([product[0]], user_id = str(call.from_user.id),subcategory_id= str(product[4]))
+    keyboard = await shop_keyboard(product[0], user_id = str(call.from_user.id),subcategory_id= str(product[4]))
     
     await call.message.delete()
     try:
