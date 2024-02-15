@@ -78,11 +78,17 @@ async def show_product(call: types.CallbackQuery, callback_data:dict):
     text += f"<b>Ma'lumot 📄: </b> {product[2]}\n"
     text += f"<b> Narxi 💸: </b> {product[3]} so'm\n\n"
     
+    product_image = product[-1]
+    
+    product_url = "http:///OneStylUzBot.pythonanywhere.com/media/" + str(product_image)
+    
     keyboard = await shop_keyboard([product[0]], user_id = str(call.from_user.id),subcategory_id= str(product[4]))
     
     await call.message.delete()
-    await call.message.answer_photo(product[-1], caption=text, reply_markup=keyboard)
-
+    try:
+        await call.message.answer_photo(product_url, caption=text, reply_markup=keyboard)
+    except:
+        await call.message.answer_photo(product_image, caption=text, reply_markup=keyboard)
 
 
 @dp.callback_query_handler(shopping_callback.filter()) 
