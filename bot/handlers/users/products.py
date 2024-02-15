@@ -264,3 +264,8 @@ async def handle_back_buttons(call:types.CallbackQuery, callback_data:dict):
         
         await call.message.delete()
         await call.message.answer("Mahsulot tanlang 🔽", reply_markup=button)
+
+
+@dp.message_handler(Text(equals="Xarid qilish 💲"))
+async def jonatvoradi_adminga(message: types.Message):
+    pass
