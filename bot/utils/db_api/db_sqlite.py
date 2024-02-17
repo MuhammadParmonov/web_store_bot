@@ -137,7 +137,7 @@ class Database:
         return  self.execute(sql, fetchone=True)
     
     def select_product(self, **kwargs):
-        sql = "SELECT * FROM main_product WHERE "
+        sql = "SELECT * FROM main_product WHERE  "
         sql, parameters = self.format_args(sql, parameters=kwargs)
         return  self.execute(sql, *parameters, fetchone=True)
     
