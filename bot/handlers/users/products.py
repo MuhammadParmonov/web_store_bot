@@ -128,10 +128,12 @@ async def show_cart(message: types.Message):
     total_price = 0
         
     for product in products:
-        print(product[2])
-        print(type(product[2]))
-    
-        pr = db.select_product(id=str(product[2]))
+        # print(product[2])
+        # print(type(product[2]))
+        try:
+            pr = db.select_product(id=str(product[2]))
+        except:
+            pr = db.select_product(id=str(product[2][1]))
         text += f"{counter}. ❇️ Nomi: {pr[1]} so'm\n"
         text += f"    💸 Narxi: {pr[3]} so'm\n\n"
         counter += 1
