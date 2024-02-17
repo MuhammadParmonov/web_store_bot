@@ -129,6 +129,7 @@ async def show_cart(message: types.Message):
         
     for product in products:
         print(product[2])
+        print(type(product[2]))
     
         pr = db.select_product(id=str(product[2]))
         text += f"{counter}. ❇️ Nomi: {pr[1]} so'm\n"
