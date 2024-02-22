@@ -80,7 +80,7 @@ async def show_product(call: types.CallbackQuery, callback_data:dict):
     
     product_image = product[-1]
     
-    product_url = "https://onestyluzbot.pythonanywhere.com/media/" + str(product_image)
+    product_url = ADMIN_SITE + "/media/" + str(product_image)
     
     print(product_url)
     
